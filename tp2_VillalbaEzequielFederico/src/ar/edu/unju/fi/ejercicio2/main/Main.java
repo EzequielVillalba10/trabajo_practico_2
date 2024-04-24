@@ -49,7 +49,7 @@ public class Main {
 			
 			case 3:eliminarEfemeride();break;
 				
-			case 4: break;
+			case 4:modificarEfemeride();break;
 			
 			case 5: System.out.println("Saliendo del programa");
 				break;
@@ -237,5 +237,10 @@ public class Main {
 		}
 			
 		}
+	}
+	
+	public static void modificarEfemeride()
+	{
+		
 	}
 }
