@@ -44,7 +44,7 @@ public class Main {
 			{
 			case 1:crearEfemeride();break;
 			
-			case 2:break;
+			case 2:mostrarEfemride();break;
 			
 			case 3:break;
 				
@@ -168,6 +168,10 @@ public class Main {
 			dia=0;
 			sc.nextLine();
 		}
+		if (dia <= 0 || dia >31)
+		{
+			System.out.println("Debe ingresar un valor para el dia entre el rango comprendido [1-31]");
+		}
 		}while(dia<=0 || dia > 31 );	
 	
 		
@@ -177,6 +181,23 @@ public class Main {
 		Efemeride efemeride = new Efemeride(codigo, variable, dia, detalle);
 		efemerides.add(efemeride);
 		
+	}
+	
+	/**
+	 * Mostrar los objetos que hay en el arraylist
+	 * 
+	 */
+	
+	public static void mostrarEfemride()
+	{
+		if (efemerides == null)
+		{
+			System.out.println("LA LISTA ESTA VACIA!!!!");
+		}
+		else
+		{
+			efemerides.forEach(e->System.out.println(e));
+		}
 	}
 
 }
