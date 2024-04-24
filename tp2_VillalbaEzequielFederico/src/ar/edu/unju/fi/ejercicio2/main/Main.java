@@ -38,7 +38,7 @@ public class Main {
 			
 			switch (opcion)
 			{
-			case 1:break;
+			case 1:crearEfemeride;break;
 			
 			case 2:break;
 			
@@ -53,6 +53,13 @@ public class Main {
 			}
 			}while(opcion!=5);
 		
+		
+	}
+	
+	/**
+	 * Creacion de objeto
+	 */
+	public static void crearEfemeride{
 		
 	}
 
