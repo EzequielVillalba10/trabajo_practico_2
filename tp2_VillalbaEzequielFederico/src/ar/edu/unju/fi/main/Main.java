@@ -62,6 +62,7 @@ public class Main {
 		if (productos == null)
 		{
 			productos = new ArrayList<>();
+			System.out.println("LISTA CREADA, INGRESE NUEVAMENTE LA OPCION 1 PARA CREAR UN OBJETO DENTRO DE LA LISTA!");
 		}
 		else
 		{
