@@ -268,12 +268,21 @@ public class Main {
 			{
 				
 				do {
+					try {
 					System.out.println("INGRESE EL NUMERO PARA MODIFICAR: ");
 					System.out.println("1) MES");
 					System.out.println("2) DIA");
 					System.out.println("3) DETALLE");
 					System.out.println("4) SALIR");
-				}while(opcion!=4);
+					opcion=sc.nextInt();
+					}catch(InputMismatchException e) {
+						System.out.println("error se pide que ingrese un dato numerico, vuelva a intentarlo");
+						opcion=0;
+						sc.nextLine();
+					}
+					
+					
+				}while(opcion!=4 || opcion==0);
 				
 			}
 		}
