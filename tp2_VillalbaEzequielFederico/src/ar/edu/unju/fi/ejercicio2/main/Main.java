@@ -2,6 +2,7 @@ package ar.edu.unju.fi.ejercicio2.main;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -46,7 +47,7 @@ public class Main {
 			
 			case 2:mostrarEfemride();break;
 			
-			case 3:break;
+			case 3:eliminarEfemeride();break;
 				
 			case 4: break;
 			
@@ -200,4 +201,32 @@ public class Main {
 		}
 	}
 
+	
+	/**
+	 * Eliminar un objeto de el Arraylist
+	 */
+	public static void eliminarEfemeride() {
+		int codigo;
+		if (efemerides == null)
+		{
+			System.out.println("LA LISTA ESTA VACIA");
+		}
+		else
+		{
+			System.out.println("==========ELIMINAR EFEMERIDE==================");
+			do {
+				try {
+			System.out.println("Ingrese codigo de Efemeride: ");
+			codigo = sc.nextInt();
+				}catch(InputMismatchException e)
+				{
+					System.out.println("ERROR, DEBE INGRESAR UN DATO NUMERICO");
+					codigo = 0;
+				}
+		}while(codigo==0);
+		
+		Iterator<Efemeride> iterator=efemerides.iterator();
+			
+		}
+	}
 }
