@@ -22,7 +22,9 @@ public class Main {
 		sc = new Scanner(System.in);
 		int opcion=0;
 		
+		
 		do {
+			try {
 			System.out.println("==================================");
 			System.out.println("1 - Crear Producto");
 			System.out.println("2 - Mostrar Productos ");
@@ -31,7 +33,12 @@ public class Main {
 			System.out.println("==================================");
 			System.out.println("Ingrese una opcion: ");
 			opcion = sc.nextInt();
-			sc.nextLine(); // Borra el baffer del scanner
+		}catch(InputMismatchException e) {
+			System.out.println("ERROR, TIENE QUE INGRESAR UN TIPO DE DATO NUMERICO!!!");
+			sc.nextLine();// Borra el baffer del scanner
+			opcion=0;
+		}
+			
 			
 			switch (opcion)
 			{
@@ -47,6 +54,7 @@ public class Main {
 				
 			}
 			}while(opcion!=4);
+		
 	}
 	
 	public static void crearProducto()
@@ -58,23 +66,48 @@ public class Main {
 		else
 		{
 		
-		
+		int codigo;
+		double precio;
 		int opcion=0;
 		origenFabricacion origen = null;
 		categoria cate = null;
 		
+		//////////////////////////////////////////////////////////////////
+		do
+		{
+		try {
 		System.out.println("Ingrese codigo de Producto: ");
-		int codigo = sc.nextInt();
-		
+		 codigo = sc.nextInt();
+		}catch(InputMismatchException e) {
+			System.out.println("ERROR, TIENE QUE INGRESAR UN TIPO DE DATO NUMERICO!!!");
+			 codigo = 99999;
+			sc.nextLine();// Borra el baffer del scanner
+		}
+		}while(codigo==99999);
 		
 		System.out.println("Ingrese descripcion: ");
 		String descripcion = sc.next();
 		sc.nextLine();
+		//////////////////////////////////////////////////////////////
+		
+		//////////////////////////////////////////////////////////////////////
+		do {
+		try {	
 		
 		System.out.println("Ingrese precio unitario: ");
-		double precio = sc.nextDouble();
+		precio = sc.nextDouble();
+		
+		}catch(InputMismatchException e) {
+			System.out.println("ERRORRRRR, SE PIDE QUE INGRESE UN DATO NUMERICO");
+			precio=9999912;
+			sc.nextLine();
+		}
+		}while(precio==9999912);
 		
 		
+		
+		
+		///////////////////////////////////////////////////////////////////
 		System.out.println("Ingrese el origen de fabricacion: ");
 		
 		
