@@ -226,6 +226,15 @@ public class Main {
 		}while(codigo==0);
 		
 		Iterator<Efemeride> iterator=efemerides.iterator();
+		while (iterator.hasNext())
+		{
+			Efemeride efemeride = iterator.next();
+			if (efemeride.getCodigo()==codigo)
+			{
+				iterator.remove();
+				System.out.println("SE ELIMINO EL EFEMERIDE CON EL CODIGO: "+codigo);
+			}
+		}
 			
 		}
 	}
