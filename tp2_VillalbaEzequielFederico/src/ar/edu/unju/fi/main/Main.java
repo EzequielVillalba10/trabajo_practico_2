@@ -37,7 +37,7 @@ public class Main {
 			{
 			case 1:crearProducto(); break;
 			
-			case 2:break;
+			case 2:mostrarProductos();break;
 			
 			case 3:break;
 				
@@ -61,7 +61,7 @@ public class Main {
 		
 		System.out.println("Ingrese descripcion: ");
 		String descripcion = sc.next();
-		
+		sc.nextLine();
 		
 		System.out.println("Ingrese el origen de fabricacion: ");
 		
@@ -135,4 +135,14 @@ public class Main {
 		productos.add(producto);
 	}
 
+	
+	/**
+	 * Muestra todos los objetos de la arraylist productos
+	 */
+	
+	public static void mostrarProductos()
+	{
+		System.out.println("-----------LISTA PRODUCTOS--------------");
+		productos.forEach(p->System.out.println(p));
+	}
 }
