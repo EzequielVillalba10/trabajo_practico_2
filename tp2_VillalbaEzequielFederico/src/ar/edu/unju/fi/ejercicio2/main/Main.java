@@ -241,6 +241,43 @@ public class Main {
 	
 	public static void modificarEfemeride()
 	{
+		int codigo,opcion;
+		if (efemerides == null)
+		{
+			System.out.println("LA LISTA ESTA VACIA");
+		}
+		else
+		{
+			System.out.println("==========ELIMINAR EFEMERIDE==================");
+			do {
+				try {
+			System.out.println("Ingrese codigo de Efemeride: ");
+			codigo = sc.nextInt();
+				}catch(InputMismatchException e)
+				{
+					System.out.println("ERROR, DEBE INGRESAR UN DATO NUMERICO");
+					codigo = 0;
+				}
+		}while(codigo==0);
 		
+		Iterator<Efemeride> iterator=efemerides.iterator();
+		while (iterator.hasNext())
+		{
+			Efemeride efemeride = iterator.next();
+			if (efemeride.getCodigo()==codigo)
+			{
+				
+				do {
+					System.out.println("INGRESE EL NUMERO PARA MODIFICAR: ");
+					System.out.println("1) MES");
+					System.out.println("2) DIA");
+					System.out.println("3) DETALLE");
+					System.out.println("4) SALIR");
+				}while(opcion!=4);
+				
+			}
+		}
+			
+		}
 	}
 }
