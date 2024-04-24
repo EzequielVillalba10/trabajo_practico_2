@@ -111,7 +111,7 @@ public class Main {
 			opcion = sc.nextInt();
 			}catch(InputMismatchException e) {
 				System.out.println("ERROR, TIENE QUE INGRESAR UN DATO DE TIPO NUMERICO");
-				opcion=10;
+				opcion=15;
 				sc.nextLine();
 			}
 			switch(opcion)
@@ -241,7 +241,8 @@ public class Main {
 	
 	public static void modificarEfemeride()
 	{
-		int codigo,opcion;
+		int codigo,opcion,opcion1,dia;
+		Mes variable = null;
 		if (efemerides == null)
 		{
 			System.out.println("LA LISTA ESTA VACIA");
@@ -281,8 +282,108 @@ public class Main {
 						sc.nextLine();
 					}
 					
+					switch(opcion)
+					{
+					case 1: 
+						
+						System.out.println("Ingrese valor numerico para indicar el mes: ");
+						do {
+							try {
+							System.out.println("======================");
+							System.out.println("1) ENERO");
+							System.out.println("2) FEBRERO");
+							System.out.println("3) MARZO");
+							System.out.println("4) ABRIL");
+							System.out.println("5) MAYO");
+							System.out.println("6) JUNIO");
+							System.out.println("7) JULIO");
+							System.out.println("8) AGOSTO");
+							System.out.println("9) SEPTIEMBRE");
+							System.out.println("10) OCTUBRE");
+							System.out.println("11) NOVIEMRE");
+							System.out.println("12) DICIEMBRE");
+							opcion1 = sc.nextInt();
+							}catch(InputMismatchException e) {
+								System.out.println("ERROR, TIENE QUE INGRESAR UN DATO DE TIPO NUMERICO");
+								opcion1=15;
+								sc.nextLine();
+							}
+							switch(opcion1)
+							{
+							case 1:variable=Mes.ENERO;
+							break;
+							
+							case 2:variable=Mes.FEBRERO;
+							break;
+							
+							case 3:variable=Mes.MARZO;
+							break;
+							
+							case 4:variable=Mes.ABRIL;
+							break;
+							
+							case 5:variable=Mes.MAYO;
+							break;
+							
+							case 6:variable=Mes.JUNIO;
+							break;
+							
+							case 7:variable=Mes.JULIO;
+							break;
+							
+							case 8:variable=Mes.AGOSTO;
+							break;
+							
+							case 9:variable=Mes.SEPTIEMBRE;
+							break;
+							
+							case 10:variable=Mes.OCTUBRE;
+							break;
+							
+							case 11:variable=Mes.NOVIEMBRE;
+							break;
+							
+							case 12:variable=Mes.DICIEMBRE;
+							break;
+							
+							default: System.out.println("ERROR, OPCION INCORRECTA!!!");
+							}
+							
+						}while(opcion<1 || opcion >12);
+						
+						efemeride.setMes(variable);
+						
+					break;
 					
-				}while(opcion!=4 || opcion==0);
+					case 2:
+						do
+						{
+						try {
+						System.out.println("Ingrese dia: ");
+						dia= sc.nextInt();
+						}catch(InputMismatchException e)
+						{
+							System.out.println("ERROR, SE DEBE INGREASAR UN DATO NUMERICO");
+							dia= 32;
+						}
+						
+						}while(dia <1 || dia >31);
+						efemeride.setDia(dia);
+					break;
+					
+					case 3:
+						System.out.println("Ingrese nuevo detalle: ");
+						String detalle = sc.next();
+						efemeride.setDetalle(detalle);
+					break;
+					
+					case 4:System.out.println("SALIENDO...");
+					
+					break;
+					
+					default: System.out.println("OPCION INCORRECTA!!!");
+					}
+				}while(opcion!=4);
 				
 			}
 		}
