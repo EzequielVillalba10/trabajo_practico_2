@@ -57,15 +57,18 @@ public class Main {
 		
 	}
 	
+	/**
+	 * creacion de lista y agregao de producto a la lista
+	 */
+	
 	public static void crearProducto()
 	{
 		if (productos == null)
 		{
 			productos = new ArrayList<>();
-			System.out.println("LISTA CREADA, INGRESE NUEVAMENTE LA OPCION 1 PARA CREAR UN OBJETO DENTRO DE LA LISTA!");
+			 
 		}
-		else
-		{
+		
 		
 		int codigo;
 		double precio;
@@ -181,7 +184,7 @@ public class Main {
 		productos.add(producto);
 	
 		}
-		}
+		
 		
 		
 
