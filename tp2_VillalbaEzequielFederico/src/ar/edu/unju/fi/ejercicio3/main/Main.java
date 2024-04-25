@@ -9,6 +9,14 @@ public class Main {
 		// TODO Auto-generated method stub
 		Provincia[] provincias = Provincia.values();
 		
+		for (Provincia provincia : provincias)
+		{
+			System.out.println("Provincia: "+provincia);
+			System.out.println("Cantidad de poblacion: "+provincia.getCantidadPoblacion());
+			System.out.println("Superficie: "+provincia.getSuperficie());
+			System.out.println("Densidad poblacional: "+provincia.calcularDensidadPoblacional());
+		}
+		
 	}
 
 }
