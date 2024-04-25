@@ -239,6 +239,12 @@ public class Main {
 		}
 	}
 	
+	
+	/**
+	 * Creacion de procedimiento para modificar atributos del objeto Efemeride
+	 * dentro de el Arraylist
+	 * 
+	 */
 	public static void modificarEfemeride()
 	{
 		int codigo,opcion,opcion1,dia;
