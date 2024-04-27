@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
+import java.util.Iterator;
 import java.util.List;
 
 import ar.edu.unju.fi.ejercicio4.constantes.Posicion;
@@ -221,6 +222,7 @@ public class Main {
 			System.out.println("Ingrese nombre del jugador: ");
 			String nombre = sc.next();
 			
+			Iterator<Jugador> iterator = jugadores.iterator();
 			
 		}
 		
