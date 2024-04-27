@@ -47,7 +47,7 @@ public class Main {
 			
 			case 2:mostrarJugadores();break;
 			
-			case 3:break;
+			case 3:modificarJugador();break;
 				
 			case 4:break;
 			
@@ -202,5 +202,31 @@ public class Main {
 		}
 		
 	}
+	
+	public static void modificarJugador()
+	{
+		//VARIABLES 
+		int codigo,opcion,opcion1,dia;
+		Posicion posicion=null;
+		///////////
+		if (jugadores == null)
+		{
+			System.out.println("LA LISTA ESTA VACIA");
+		}
+		else
+		{
+			System.out.println("===========ELIMINAR JUGADOR===========");
+			System.out.println("Ingrese apellido del Jugador: ");
+			String apellido = sc.next();
+			System.out.println("Ingrese nombre del jugador: ");
+			String nombre = sc.next();
+			
+			
+		}
+		
+		
+		
+	}
+	
 
 }
