@@ -216,14 +216,38 @@ public class Main {
 		}
 		else
 		{
-			System.out.println("===========ELIMINAR JUGADOR===========");
+			System.out.println("===========MODIFICAR JUGADOR===========");
 			System.out.println("Ingrese apellido del Jugador: ");
 			String apellido = sc.next();
 			System.out.println("Ingrese nombre del jugador: ");
 			String nombre = sc.next();
 			
 			Iterator<Jugador> iterator = jugadores.iterator();
-			
+			while(iterator.hasNext())
+			{
+				Jugador jugador = iterator.next();
+				if (jugador.getApellido().equals(apellido) && jugador.getNombre().equals(nombre))
+				{
+					
+					do {
+						try {
+						System.out.println("INGRESE LA POSICION QUE DESEA PARA EL JUGADOR: ");
+						System.out.println("1) DELANTERO");
+						System.out.println("2) MEDIO");
+						System.out.println("3) DEFEMSA");
+						System.out.println("4) ARQUERO");
+						System.out.println("5) SALIR");
+						opcion=sc.nextInt();
+						}catch(InputMismatchException e) {
+							System.out.println("error se pide que ingrese un dato numerico, vuelva a intentarlo");
+							opcion=0;
+							sc.nextLine();
+						}
+					}while(opcion!=5);
+					
+					
+				}
+			}
 		}
 		
 		
