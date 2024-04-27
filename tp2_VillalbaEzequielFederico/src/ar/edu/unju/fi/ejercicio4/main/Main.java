@@ -2,7 +2,6 @@ package ar.edu.unju.fi.ejercicio4.main;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.List;
@@ -50,7 +49,7 @@ public class Main {
 			
 			case 3:modificarJugador();break;
 				
-			case 4:break;
+			case 4:eliminarJugador();break;
 			
 			case 5: System.out.println("Saliendo del programa");
 				break;
@@ -62,19 +61,6 @@ public class Main {
 		
 		
 		
-		/*
-		System.out.println("Ingrese año: ");
-		int año = sc.nextInt();
-		System.out.println("Ingrese mes: ");
-		int mes = sc.nextInt();
-		System.out.println("Ingrese dia: ");
-		int dia = sc.nextInt();
-		
-		LocalDate fechaNac = LocalDate.of(año, mes, dia);
-		Jugador jugador = new Jugador();
-		jugador.setFechaDeNacimiento(fechaNac);
-		System.out.println(jugador.calcularEdad());
-		*/
 		
 	}
 	/**
@@ -269,5 +255,39 @@ public class Main {
 		
 	}
 	
-
+	/**
+	 * Elimina un jugador dentro del arraylist
+	 */
+	
+	public static void eliminarJugador() {
+		
+		if (jugadores == null)
+		{
+			System.out.println("LA LISTA ESTA VACIA");
+		}
+		else
+		{
+			System.out.println("===========MODIFICAR JUGADOR===========");
+			System.out.println("Ingrese apellido del Jugador: ");
+			String apellido = sc.next();
+			System.out.println("Ingrese nombre del jugador: ");
+			String nombre = sc.next();
+			
+			Iterator<Jugador> iterator = jugadores.iterator();
+			while(iterator.hasNext())
+			{
+				Jugador jugador = iterator.next();
+				if (jugador.getApellido().equals(apellido) && jugador.getNombre().equals(nombre))
+				{
+					
+					
+					iterator.remove();	
+					System.out.println("Se elimino el jugador con exito....");
+					
+				
+			}
+		
+	}
+}
+}
 }
