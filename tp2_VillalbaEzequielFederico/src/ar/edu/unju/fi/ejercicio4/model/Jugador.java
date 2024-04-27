@@ -1,6 +1,10 @@
 package ar.edu.unju.fi.ejercicio4.model;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.util.Calendar;
+import java.util.Date;
+
 
 import ar.edu.unju.fi.ejercicio4.constantes.Posicion;
 
@@ -14,6 +18,10 @@ public class Jugador {
 		private double peso;
 		private double altura;
 		private Posicion posicion;
+		
+		public Jugador() {
+			
+		}
 		
 		public Jugador(String nombre, String apellido, LocalDate fechaDeNacimiento, String nacionalidad, double peso,
 				double altura, Posicion posicion) {
@@ -82,7 +90,12 @@ public class Jugador {
 			this.posicion = posicion;
 		}
 
-		
+		public int calcularEdad() {
+			
+			LocalDate hoy = LocalDate.now();
+			Period diferencia = Period.between(fechaDeNacimiento, hoy);
+			return diferencia.getYears();	
+		}
 		
 		
 		@Override
