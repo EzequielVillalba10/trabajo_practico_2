@@ -19,9 +19,7 @@ public class Jugador {
 		private double altura;
 		private Posicion posicion;
 		
-		public Jugador() {
-			
-		}
+	
 		
 		public Jugador(String nombre, String apellido, LocalDate fechaDeNacimiento, String nacionalidad, double peso,
 				double altura, Posicion posicion) {
