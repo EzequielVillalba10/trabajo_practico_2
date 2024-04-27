@@ -45,7 +45,7 @@ public class Main {
 			{
 			case 1:altaJugador();break;
 			
-			case 2:break;
+			case 2:mostrarJugadores();break;
 			
 			case 3:break;
 				
@@ -76,6 +76,9 @@ public class Main {
 		*/
 		
 	}
+	/**
+	 * se agregan objetos el arrayList de choferes
+	 */
 	
 	public static void altaJugador() {
 		if (jugadores==null)
@@ -180,6 +183,24 @@ public class Main {
 		}while(opcion <1 || opcion >4);		
 		
 		Jugador jugador = new Jugador(nombre, apellido, fechaNac, nacionalidad, peso, estatura, posicion);
+	}
+	
+	/**
+	 * muestra todos los objetos de la arraylist
+	 */
+	public static void mostrarJugadores() {
+		
+		if (jugadores == null)
+		{
+			System.out.println("LA LISTA ESTA VACIA!!!!");
+			
+		}
+		else
+		{
+			jugadores.forEach(j->System.out.println(j));
+			
+		}
+		
 	}
 
 }
