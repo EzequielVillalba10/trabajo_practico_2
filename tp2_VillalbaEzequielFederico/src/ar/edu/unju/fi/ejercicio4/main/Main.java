@@ -184,6 +184,7 @@ public class Main {
 		}while(opcion <1 || opcion >4);		
 		
 		Jugador jugador = new Jugador(nombre, apellido, fechaNac, nacionalidad, peso, estatura, posicion);
+		jugadores.add(jugador);
 	}
 	
 	/**
@@ -207,7 +208,7 @@ public class Main {
 	public static void modificarJugador()
 	{
 		//VARIABLES 
-		int codigo,opcion,opcion1,dia;
+		int opcion;
 		Posicion posicion=null;
 		///////////
 		if (jugadores == null)
@@ -234,18 +235,32 @@ public class Main {
 						System.out.println("INGRESE LA POSICION QUE DESEA PARA EL JUGADOR: ");
 						System.out.println("1) DELANTERO");
 						System.out.println("2) MEDIO");
-						System.out.println("3) DEFEMSA");
+						System.out.println("3) DEFENSA");
 						System.out.println("4) ARQUERO");
-						System.out.println("5) SALIR");
 						opcion=sc.nextInt();
 						}catch(InputMismatchException e) {
 							System.out.println("error se pide que ingrese un dato numerico, vuelva a intentarlo");
 							opcion=0;
 							sc.nextLine();
 						}
-					}while(opcion!=5);
+						
+						
+						switch (opcion) {
+						
+						case 1: posicion = Posicion.DELANTERO;
+						
+						case 2: posicion = Posicion.MEDIO;break;
+						
+						case 3: posicion = Posicion.DEFENSA;break;
+						
+						case 4: posicion = Posicion.ARQUERO;break;
+						
+						
+						default: System.out.println("ERROR, OPCION INCORRECTA!!");
+						}
+					}while(opcion<1 || opcion>4);
 					
-					
+					jugador.setPosicion(posicion);
 				}
 			}
 		}
