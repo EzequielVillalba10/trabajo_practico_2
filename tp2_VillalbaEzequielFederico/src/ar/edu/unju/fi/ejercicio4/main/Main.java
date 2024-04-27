@@ -87,6 +87,10 @@ public class Main {
 		//VARIABLES....................
 		int opcion;
 		Posicion posicion = null;
+		boolean condicion;
+		double estatura;
+		double peso;
+		LocalDate fechaNac= LocalDate.now();
 		/////////////////////////////////////////////////////////////////
 		//empiezo a pedir que ingrese los datos para la CLase jugador al usuario
 		
@@ -97,34 +101,65 @@ public class Main {
 		String apellido = sc.next();
 		
 		System.out.println("----------Ingrese fecha de Nacimiento---------");
+		
+		do {
+			try {
 		System.out.println("Ingrese año: ");
 		int año = sc.nextInt();
 		System.out.println("Ingrese mes: ");
 		int mes = sc.nextInt();
 		System.out.println("Ingrese dia: ");
 		int dia = sc.nextInt();
+		 condicion = true;
+		fechaNac = LocalDate.of(año, mes, dia);
+		}catch(InputMismatchException e) {
+			 condicion = false;
+			 sc.nextLine();
+		}
 		
-		LocalDate fechaNac = LocalDate.of(año, mes, dia);
-		
+		}while(condicion==false);
 		System.out.println("Ingrese nacionalidad: ");
 		String nacionalidad = sc.next();
 		
+		do {
+		try {	
 		
 		System.out.println("Ingrese estatura: ");
-		double estatura = sc.nextDouble();
+		estatura = sc.nextDouble();
+		}catch(InputMismatchException e) {
+			estatura=0;
+			System.out.println("ERROR, SE ESPERA QUE INGRESE UN DATO NUMERICO");
+			sc.nextLine();
+		}
+		}while(estatura==0);
+		
+		do {
+			try {	
+			
 		
 		System.out.println("Ingrese peso: ");
-		double peso = sc.nextDouble();
-		
-		
+		peso = sc.nextDouble();
+		}catch(InputMismatchException e) {
+			peso = 0;
+			System.out.println("ERROR, SE ESPERA QUE INGRESE UN DATO NUMERICO");
+			sc.nextLine();
+		}
+		}while(peso==0);
 		System.out.println("Ingrese posicion: ");
 		do {
+			
+			try {
 			System.out.println("1)DELANTERO");
 			System.out.println("2)MEDIO");
 			System.out.println("3)DEFENSA");
 			System.out.println("4)ARQUERO");
 			opcion = sc.nextInt();
-			
+			}catch(InputMismatchException e)
+			{
+				System.out.println("error, debe ingresar un dato numerico!!!");
+				opcion=10;
+				sc.nextLine();
+			}
 			switch(opcion) {
 			case 1: posicion = Posicion.DELANTERO;
 			break;
