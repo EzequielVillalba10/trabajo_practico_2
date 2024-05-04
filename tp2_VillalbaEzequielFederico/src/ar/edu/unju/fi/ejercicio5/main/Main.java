@@ -23,7 +23,7 @@ public class Main {
 		productos = new ArrayList<>();
 		precargarProductos();
 		
-int opcion=0;
+int opcion=0, opcion2=0;
 		
 		
 		do {
@@ -46,7 +46,27 @@ int opcion=0;
 			{
 			case 1:mostrarProductos();break;
 			
-			case 2:break;
+			case 2:System.out.println("=======TIPO DE PAGO=========");
+			do {
+				try {
+
+				System.out.println("1 - Pago efectivo");
+				System.out.println("2 - Pago tarjeta");
+				System.out.println("3 - Salir");
+				System.out.println("Ingrese una opcion: ");
+				opcion2 = sc.nextInt();
+			}catch(InputMismatchException e) {
+				System.out.println("ERROR, TIENE QUE INGRESAR UN TIPO DE DATO NUMERICO!!!");
+				sc.nextLine();// Borra el baffer del scanner
+				opcion2=0;
+			}
+				System.out.println("================================");
+				switch(opcion2)
+				{
+				case 1: 
+				}
+			}while(opcion2!=3);
+			break;
 			
 			case 3:System.out.println("Saliendo del programa");break;
 			
