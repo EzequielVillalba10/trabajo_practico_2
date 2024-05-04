@@ -10,6 +10,7 @@ import java.util.function.Consumer;
 
 import ar.edu.unju.fi.ejercicio5.interfaces.Pago;
 import ar.edu.unju.fi.ejercicio5.model.PagoEfectivo;
+import ar.edu.unju.fi.ejercicio5.model.PagoTarjeta;
 import ar.edu.unju.fi.ejercicio5.model.Producto;
 import ar.edu.unju.fi.ejercicio5.model.Producto.categoria;
 import ar.edu.unju.fi.ejercicio5.model.Producto.origenFabricacion;
@@ -52,6 +53,7 @@ int opcion=0, opcion2=0;
 			case 2:
 				int idcodigo;
 				Pago pago;
+				LocalDate fechaPago = LocalDate.now(); 
 				ArrayList<Producto> acumulacionDeCompras = new ArrayList<>();
 				do {
 					try {
@@ -105,13 +107,13 @@ int opcion=0, opcion2=0;
 				switch(opcion2)
 				{
 				case 1:   
-				LocalDate fechaPago = LocalDate.now();
+				pago = new PagoEfectivo();
 				System.out.println("Fecha de Pago: "+fechaPago);
 				break;
 				case 2: 
 					System.out.println("Ingrese numero de tarjeta: ");
 					String numeroTarjeta = sc.next();
-				//	pago = new PagoTarjeta(numeroTarjeta, LocalDate.now(), 1999);
+					pago = new PagoTarjeta(numeroTarjeta, fechaPago, acumulado);
 					
 				break;
 				}
