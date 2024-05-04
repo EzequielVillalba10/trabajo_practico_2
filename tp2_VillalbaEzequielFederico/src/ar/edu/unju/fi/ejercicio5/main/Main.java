@@ -52,7 +52,7 @@ int opcion=0, opcion2=0;
 			
 			case 2:
 				int idcodigo;
-				Pago pago;
+				Pago pago ;
 				LocalDate fechaPago = LocalDate.now(); 
 				ArrayList<Producto> acumulacionDeCompras = new ArrayList<>();
 				do {
@@ -60,7 +60,7 @@ int opcion=0, opcion2=0;
 			System.out.println("Ingrese codigo de producto (0 para no continuar): " );
 			idcodigo = sc.nextInt();
 					}catch(InputMismatchException e) {
-						idcodigo=0;
+						idcodigo=16;
 						sc.nextLine();
 					}
 			
@@ -107,17 +107,21 @@ int opcion=0, opcion2=0;
 				switch(opcion2)
 				{
 				case 1:   
-				pago = new PagoEfectivo();
-				System.out.println("Fecha de Pago: "+fechaPago);
+				pago = new PagoEfectivo(acumulado, fechaPago);
+				pago.realizarPago(acumulado);
+				pago.imprimirRecibo();
 				break;
 				case 2: 
 					System.out.println("Ingrese numero de tarjeta: ");
 					String numeroTarjeta = sc.next();
 					pago = new PagoTarjeta(numeroTarjeta, fechaPago, acumulado);
+					pago.realizarPago(acumulado);
+					pago.imprimirRecibo();
 					
 				break;
 				}
-			}while(opcion2!=3);
+			}while(opcion2!=3 && opcion2!=2 && opcion2!= 3);
+			
 			break;
 			
 			case 3:System.out.println("Saliendo del programa");break;
