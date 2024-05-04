@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.ejercicio5.main;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,6 +21,38 @@ public class Main {
 		productos = new ArrayList<>();
 		precargarProductos();
 		
+int opcion=0;
+		
+		
+		do {
+			try {
+			System.out.println("==================================");
+			System.out.println("1 - Mostrar Productos");
+			System.out.println("2 - Realizar compra");
+			System.out.println("3 - Salir");
+			System.out.println("==================================");
+			System.out.println("Ingrese una opcion: ");
+			opcion = sc.nextInt();
+		}catch(InputMismatchException e) {
+			System.out.println("ERROR, TIENE QUE INGRESAR UN TIPO DE DATO NUMERICO!!!");
+			sc.nextLine();// Borra el baffer del scanner
+			opcion=0;
+		}
+			
+			
+			switch (opcion)
+			{
+			case 1:break;
+			
+			case 2:break;
+			
+			case 3:System.out.println("Saliendo del programa");break;
+			
+			
+			default: System.out.println("OPCION INCORERECTA!!!!");
+				
+			}
+			}while(opcion!=3);
 		
 	}
 	
