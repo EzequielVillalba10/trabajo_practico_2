@@ -21,6 +21,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		sc = new Scanner(System.in);
 		productos = new ArrayList<>();
+		ArrayList<Producto> acumulacionDeCompras = new ArrayList<>();
 		precargarProductos();
 		
 int opcion=0, opcion2=0;
@@ -48,6 +49,7 @@ int opcion=0, opcion2=0;
 			
 			case 2:
 				int idcodigo;
+				
 				do {
 					try {
 			System.out.println("Ingrese codigo de producto (0 para no continuar): " );
@@ -63,9 +65,11 @@ int opcion=0, opcion2=0;
 					if (productoEncontrado.isEstado()==false)
 					{
 					System.out.println("El producto no esta disponible");
+					
 					}
 					else
 					{
+					acumulacionDeCompras.add(productoEncontrado);
 					System.out.println("Producto agregado...");
 					}
 				}
@@ -151,6 +155,8 @@ int opcion=0, opcion2=0;
 		}
 		return null;
 	}
+	
+	
 	
 
 }
