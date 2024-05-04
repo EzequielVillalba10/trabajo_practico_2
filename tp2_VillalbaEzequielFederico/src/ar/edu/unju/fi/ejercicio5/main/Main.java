@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.ejercicio5.main;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.Scanner;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import ar.edu.unju.fi.ejercicio5.interfaces.Pago;
+import ar.edu.unju.fi.ejercicio5.model.PagoEfectivo;
 import ar.edu.unju.fi.ejercicio5.model.Producto;
 import ar.edu.unju.fi.ejercicio5.model.Producto.categoria;
 import ar.edu.unju.fi.ejercicio5.model.Producto.origenFabricacion;
@@ -21,7 +24,6 @@ public class Main {
 		// TODO Auto-generated method stub
 		sc = new Scanner(System.in);
 		productos = new ArrayList<>();
-		ArrayList<Producto> acumulacionDeCompras = new ArrayList<>();
 		precargarProductos();
 		
 int opcion=0, opcion2=0;
@@ -49,7 +51,8 @@ int opcion=0, opcion2=0;
 			
 			case 2:
 				int idcodigo;
-				
+				Pago pago;
+				ArrayList<Producto> acumulacionDeCompras = new ArrayList<>();
 				do {
 					try {
 			System.out.println("Ingrese codigo de producto (0 para no continuar): " );
@@ -79,7 +82,12 @@ int opcion=0, opcion2=0;
 				}
 				}while(idcodigo!=0);
 				
-			System.out.println("=======TIPO DE PAGO=========");
+				
+				double acumulado = calcularTotal(acumulacionDeCompras);
+			
+				
+				
+				System.out.println("=======TIPO DE PAGO=========");
 			do {
 				try {
 
@@ -96,7 +104,16 @@ int opcion=0, opcion2=0;
 				System.out.println("================================");
 				switch(opcion2)
 				{
-				case 1:  
+				case 1:   
+				LocalDate fechaPago = LocalDate.now();
+				System.out.println("Fecha de Pago: "+fechaPago);
+				break;
+				case 2: 
+					System.out.println("Ingrese numero de tarjeta: ");
+					String numeroTarjeta = sc.next();
+				//	pago = new PagoTarjeta(numeroTarjeta, LocalDate.now(), 1999);
+					
+				break;
 				}
 			}while(opcion2!=3);
 			break;
@@ -156,6 +173,14 @@ int opcion=0, opcion2=0;
 		return null;
 	}
 	
+	public static double calcularTotal(ArrayList <Producto> acumulacionDeCompras){
+		double total = 0;
+		for (Producto producto : acumulacionDeCompras)
+		{
+			total+=producto.getPrecioUnitario();
+		}
+		return total;
+	}
 	
 	
 
