@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 import ar.edu.unju.fi.ejercicio5.model.Producto;
 import ar.edu.unju.fi.ejercicio5.model.Producto.categoria;
@@ -42,7 +44,7 @@ int opcion=0;
 			
 			switch (opcion)
 			{
-			case 1:break;
+			case 1:mostrarProductos();break;
 			
 			case 2:break;
 			
@@ -79,5 +81,14 @@ int opcion=0;
 	}
 
 }
+	
+	/**
+	 * Metodo para mostrar los objetos dentro de la arraylist productos!
+	 */
+	public static void mostrarProductos()
+	{
+		Consumer<Producto> printConsumerProd = p -> System.out.println(p);
+		productos.forEach(printConsumerProd);
+	}
 
 }
