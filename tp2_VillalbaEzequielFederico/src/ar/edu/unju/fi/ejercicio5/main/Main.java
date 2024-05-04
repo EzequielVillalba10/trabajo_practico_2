@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 import ar.edu.unju.fi.ejercicio5.interfaces.Pago;
@@ -167,6 +166,11 @@ int opcion=0, opcion2=0;
 		productos.forEach(printConsumerProd);
 	}
 	
+	/**
+	 * Metodo para buscar un producto dentro de una arraylist atraves de un codigo
+	 * @param codigo
+	 * @return
+	 */
 	public static Producto buscarProducto(int codigo) {
 		for(Producto producto: productos)
 		{
@@ -179,6 +183,11 @@ int opcion=0, opcion2=0;
 		return null;
 	}
 	
+	/**
+	 * Metodo que devuelve el total de la suma de todos los valores de la arraylist de acumulaciondeCompras
+	 * @param acumulacionDeCompras
+	 * @return
+	 */
 	public static double calcularTotal(ArrayList <Producto> acumulacionDeCompras){
 		double total = 0;
 		for (Producto producto : acumulacionDeCompras)

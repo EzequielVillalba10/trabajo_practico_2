@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.ejercicio5.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import ar.edu.unju.fi.ejercicio5.interfaces.Pago;
 
@@ -26,9 +27,11 @@ public class PagoTarjeta implements Pago {
 
 	@Override
 	public void imprimirRecibo() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+		String fechaenString = fechaPago.format(formatter);
 		System.out.println("Numero de tarjeta: "+numeroTarjeta);
-		System.out.println("Fecha de pago: "+fechaPago);
-		System.out.println("Monto pagado: "+montoPagado);
+		System.out.println("Fecha de pago: "+fechaenString);
+		System.out.println("Monto pagado: $"+montoPagado);
 		
 
 	}
