@@ -6,13 +6,13 @@ import ar.edu.unju.fi.ejercicio5.interfaces.Pago;
 
 public class PagoTarjeta implements Pago {
 
-	private long numeroTarjeta;
+	private String numeroTarjeta;
 	private LocalDate fechaPago;
-	private double montoPagado;
+	private double montoPagado; // este atributo se actualiza cuando el metodo realizarPago(monto)
 	
 	
 
-	public PagoTarjeta(long numeroTarjeta, LocalDate fechaPago, double montoPagado) {
+	public PagoTarjeta(String numeroTarjeta, LocalDate fechaPago, double montoPagado) {
 		this.numeroTarjeta = numeroTarjeta;
 		this.fechaPago = fechaPago;
 		this.montoPagado = montoPagado;
@@ -20,21 +20,24 @@ public class PagoTarjeta implements Pago {
 
 	@Override
 	public void realizarPago(double monto) {
-		// TODO Auto-generated method stub
+		this.montoPagado = monto + (monto*0.15);
 
 	}
 
 	@Override
 	public void imprimirRecibo() {
-		// TODO Auto-generated method stub
+		System.out.println("Numero de tarjeta: "+numeroTarjeta);
+		System.out.println("Fecha de pago: "+fechaPago);
+		System.out.println("Monto pagado: "+montoPagado);
+		
 
 	}
 
-	public long getNumeroTarjeta() {
+	public String getNumeroTarjeta() {
 		return numeroTarjeta;
 	}
 
-	public void setNumeroTarjeta(long numeroTarjeta) {
+	public void setNumeroTarjeta(String numeroTarjeta) {
 		this.numeroTarjeta = numeroTarjeta;
 	}
 
