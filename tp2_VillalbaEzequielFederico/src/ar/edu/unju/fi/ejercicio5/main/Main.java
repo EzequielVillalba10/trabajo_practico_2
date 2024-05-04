@@ -46,7 +46,36 @@ int opcion=0, opcion2=0;
 			{
 			case 1:mostrarProductos();break;
 			
-			case 2:System.out.println("=======TIPO DE PAGO=========");
+			case 2:
+				int idcodigo;
+				do {
+					try {
+			System.out.println("Ingrese codigo de producto (0 para no continuar): " );
+			idcodigo = sc.nextInt();
+					}catch(InputMismatchException e) {
+						idcodigo=0;
+						sc.nextLine();
+					}
+			
+			Producto productoEncontrado = buscarProducto(idcodigo); // devuelve el objeto atraves de un metodo de busqueda 
+				if (productoEncontrado!=null)
+				{
+					if (productoEncontrado.isEstado()==false)
+					{
+					System.out.println("El producto no esta disponible");
+					}
+					else
+					{
+					System.out.println("Producto agregado...");
+					}
+				}
+				else
+				{
+					System.out.println("El producto no puedo encontrado...");
+				}
+				}while(idcodigo!=0);
+				
+			System.out.println("=======TIPO DE PAGO=========");
 			do {
 				try {
 
@@ -63,7 +92,7 @@ int opcion=0, opcion2=0;
 				System.out.println("================================");
 				switch(opcion2)
 				{
-				case 1: 
+				case 1:  
 				}
 			}while(opcion2!=3);
 			break;
@@ -110,5 +139,18 @@ int opcion=0, opcion2=0;
 		Consumer<Producto> printConsumerProd = p -> System.out.println(p);
 		productos.forEach(printConsumerProd);
 	}
+	
+	public static Producto buscarProducto(int codigo) {
+		for(Producto producto: productos)
+		{
+			if (producto.getCondigo()==codigo)
+			{
+				return producto;
+			}
+			
+		}
+		return null;
+	}
+	
 
 }
