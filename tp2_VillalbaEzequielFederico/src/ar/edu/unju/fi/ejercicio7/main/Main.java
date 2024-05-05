@@ -51,7 +51,7 @@ public class Main {
 			
 			case 3:incrementarPrecios(); break;
 			
-			case 4: break;
+			case 4:mostrarPorCategoria();break;
 			
 			case 5: break;
 			
@@ -122,6 +122,19 @@ System.out.println("======================================PRODUCTOS SIN STOCK===
 		        return new Producto(p.getCondigo(), p.getDescripcion(), nuevoPrecio, p.getOrigenFabricacion(), p.getCategoria(), true);};
 		    List<Producto> nuevaLista = productos.stream().map(aumentoPrecio).collect(Collectors.toList());
 		    nuevaLista.forEach(System.out::println);
+	}
+	
+	public static void mostrarPorCategoria()
+	{
+		System.out.println("======================================PRODUCTOS ELECTROHOGAR DISPONIBLES==========================================================================");
+
+		Predicate<Producto> filterProductoFalse = p-> p.isEstado() && p.getCategoria().equals(p.getCategoria().ELECTROHOGAR);
+		
+		List <Producto> productoSinStock = productos.stream().filter(filterProductoFalse).collect(Collectors.toList());
+		productoSinStock.forEach(System.out::println);
+		
+		System.out.println("=====================================================================================================================================");
+	
 	}
 }
 
