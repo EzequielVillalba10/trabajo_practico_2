@@ -5,6 +5,8 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import ar.edu.unju.fi.ejercicio5.model.Producto;
 import ar.edu.unju.fi.ejercicio5.model.Producto.categoria;
@@ -44,7 +46,7 @@ public class Main {
 			{
 			case 1:mostrarProductos();break;
 			
-			case 2:break;
+			case 2:mostrarProductos2();break;
 			
 			case 3: break;
 			
@@ -87,6 +89,7 @@ public class Main {
 	
 	public static void mostrarProductos()
 	{
+		System.out.println("======================================PRODUCTOS DISPONIBLES==========================================================================");
 		
 		Consumer<Producto> printConsumerProd = p -> 
 		{
@@ -96,6 +99,19 @@ public class Main {
 			}
 		};
 		productos.forEach(printConsumerProd);
+		System.out.println("=====================================================================================================================================");
+	}
+	
+	
+	public static void mostrarProductos2() {
+System.out.println("======================================PRODUCTOS SIN STOCK==========================================================================");
+
+		Predicate<Producto> filterProductoFalse = p-> p.isEstado()==false;
 		
+		List <Producto> productoSinStock = productos.stream().filter(filterProductoFalse).collect(Collectors.toList());
+		productoSinStock.forEach(System.out::println);
+		
+		System.out.println("=====================================================================================================================================");
 	}
 }
+
