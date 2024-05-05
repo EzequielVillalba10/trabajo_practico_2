@@ -8,11 +8,26 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		FelinoDomestico gato = new FelinoDomestico("Garfield", (byte)45, 12f);
+		FelinoSalvaje gato = new FelinoSalvaje("Tanner", (byte)20, 186f);
 		
 		//Definicion de expresion lambda que define el convertidor de FelinoDOmestico a FelinoSalvaje
 		
-		Converter<FelinoDomestico, FelinoSalvaje> converter = x -> new FelinoSalvaje(x.getNombre(),x.getEdad(),x.getPeso());
+		Converter<FelinoSalvaje, FelinoDomestico> converter = x -> new FelinoDomestico(x.getNombre(),x.getEdad(),x.getPeso());
+		
+		
+		// APARTIR DE ACA SE REALIZA LA CONVERSION
+		if (Converter.isNotNull(gato)) {
+		FelinoDomestico felino1 = converter.convert(gato); // aca lo convirtio
+		converter.mostrarObjeto(felino1);
+		}
+		else
+		{
+			System.out.println("El objeto a convertir no existe.");
+		}
+		
+		
+		//Mostramos los datos del objeto felino salvaje felino1
+		
 		
 	}
 
