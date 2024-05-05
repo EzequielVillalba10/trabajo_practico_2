@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -48,7 +49,7 @@ public class Main {
 			
 			case 2:mostrarProductos2();break;
 			
-			case 3: break;
+			case 3:incrementarPrecios(); break;
 			
 			case 4: break;
 			
@@ -112,6 +113,15 @@ System.out.println("======================================PRODUCTOS SIN STOCK===
 		productoSinStock.forEach(System.out::println);
 		
 		System.out.println("=====================================================================================================================================");
+	}
+	
+	public static void incrementarPrecios()
+	{
+		 Function<Producto, Producto> aumentoPrecio = p -> {
+		        double nuevoPrecio = p.getPrecioUnitario() * 1.20;
+		        return new Producto(p.getCondigo(), p.getDescripcion(), nuevoPrecio, p.getOrigenFabricacion(), p.getCategoria(), true);};
+		    List<Producto> nuevaLista = productos.stream().map(aumentoPrecio).collect(Collectors.toList());
+		    nuevaLista.forEach(System.out::println);
 	}
 }
 
