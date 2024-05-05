@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.ejercicio7.main;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,6 +20,26 @@ public class Main {
 		sc = new Scanner(System.in);
 		productos = new ArrayList<>();
 		precargarProductos();
+		
+		int opcion;
+		do
+		{
+			try {
+			System.out.println("1) Mostrar productos disponibles");
+			System.out.println("2) Mostrar productos faltantes");
+			System.out.println("3) Incrementar los precios de los productos en un 20%");
+			System.out.println("4) Mostrar los productos que corresponden a la categoria Electrohogar y esten disponibles a la venta");
+			System.out.println("5) Ordenar los productos por precio de forma descendiente");
+			System.out.println("6) Mostrar los productos con los nombres en mayusculas");
+			System.out.println("7) Salir");
+			opcion = sc.nextInt();
+			}catch(InputMismatchException e) {
+				System.out.println("ERROR, TIENE QUE INGRESAR UN TIPO DE DATO NUMERICO!!!");
+				sc.nextLine();// Borra el baffer del scanner
+				opcion=0;
+			}
+		}while(opcion!=7);
+		
 	}
 
 	
