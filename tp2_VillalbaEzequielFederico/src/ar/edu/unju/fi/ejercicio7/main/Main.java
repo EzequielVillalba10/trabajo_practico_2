@@ -1,6 +1,9 @@
 package ar.edu.unju.fi.ejercicio7.main;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -53,9 +56,9 @@ public class Main {
 			
 			case 4:mostrarPorCategoria();break;
 			
-			case 5: break;
+			case 5:ordenarProductos();break;
 			
-			case 6: break;
+			case 6:break;
 			
 			case 7: System.out.println("SALIENDO DEL PROGRAMA....");break;
 			default: System.out.println("Opcion invalida!!!");
@@ -136,5 +139,14 @@ System.out.println("======================================PRODUCTOS SIN STOCK===
 		System.out.println("=====================================================================================================================================");
 	
 	}
+	
+	public static void ordenarProductos()
+	{
+		Comparator<Producto> comparadorPorPrecioUnitario = (Producto p1, Producto p2)-> Double.compare(p2.getPrecioUnitario(),p1.getPrecioUnitario());
+		Collections.sort(productos,comparadorPorPrecioUnitario);
+		productos.forEach(p->System.out.println(p));
+		//productos.sort(Comparator.comparing(Producto::getPrecioUnitario).reversed());
+	}
+	
 }
 
