@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Consumer;
 
 import ar.edu.unju.fi.ejercicio5.model.Producto;
 import ar.edu.unju.fi.ejercicio5.model.Producto.categoria;
@@ -38,6 +39,25 @@ public class Main {
 				sc.nextLine();// Borra el baffer del scanner
 				opcion=0;
 			}
+			
+			switch(opcion)
+			{
+			case 1:mostrarProductos();break;
+			
+			case 2:break;
+			
+			case 3: break;
+			
+			case 4: break;
+			
+			case 5: break;
+			
+			case 6: break;
+			
+			case 7: System.out.println("SALIENDO DEL PROGRAMA....");break;
+			default: System.out.println("Opcion invalida!!!");
+			}
+			
 		}while(opcion!=7);
 		
 	}
@@ -63,5 +83,19 @@ public class Main {
 			productos.add(new Producto(15, "Caminadora Electrica Duel", 850000, origenFabricacion.CHINA, categoria.ELECTROHOGAR, false));
 			
 	}
+	}
+	
+	public static void mostrarProductos()
+	{
+		
+		Consumer<Producto> printConsumerProd = p -> 
+		{
+			
+			if (p.isEstado()) {
+				System.out.println(p);
+			}
+		};
+		productos.forEach(printConsumerProd);
+		
 	}
 }
