@@ -58,7 +58,7 @@ public class Main {
 			
 			case 5:ordenarProductos();break;
 			
-			case 6:break;
+			case 6:mostrarProductosPorMayuscula();break;
 			
 			case 7: System.out.println("SALIENDO DEL PROGRAMA....");break;
 			default: System.out.println("Opcion invalida!!!");
@@ -148,5 +148,13 @@ System.out.println("======================================PRODUCTOS SIN STOCK===
 		//productos.sort(Comparator.comparing(Producto::getPrecioUnitario).reversed());
 	}
 	
+	
+	public static void mostrarProductosPorMayuscula() {
+		Function<Producto, Producto> transformarMayuscula = p -> {
+	        String nuevaDescripcion = p.getDescripcion().toUpperCase();
+	        return new Producto(p.getCondigo(), nuevaDescripcion, p.getPrecioUnitario(), p.getOrigenFabricacion(), p.getCategoria(), true);};
+	    List<Producto> nuevaLista = productos.stream().map(transformarMayuscula).collect(Collectors.toList());
+	    nuevaLista.forEach(System.out::println);
+	}
 }
 
